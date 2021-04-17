@@ -1,0 +1,5 @@
+build/
+dist/
+node_modules/
+tag-definition.yml
+*.DS_Store
