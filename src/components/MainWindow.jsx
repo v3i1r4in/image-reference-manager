@@ -11,9 +11,6 @@ const batch = 50;
 
 const useStyles = makeStyles(theme => ({
     toolbar: theme.mixins.toolbar,
-    spacer: {
-        height: ToolbarHeight
-    },
     content: {
         backgroundColor: theme.palette.background.default,
         display: 'flex',
@@ -126,11 +123,10 @@ export const MainWindow = () => {
     });
 
     const { sidebarWidth: [sidebarWidth] } = useContext(AppStateContext);
-    return <div>
-        <div className={classes.spacer} />
+    return <div style={{width: '100%', height: '100%', display: 'flex'}}>
         <div id="scrollableDiv"
             className={classes.contentContainer}
-            style={{ marginLeft: sidebarWidth, marginRight: rightbarWidth }}>
+            style={{ flexGrow: 1, marginLeft: sidebarWidth, marginRight: rightbarWidth, marginTop: ToolbarHeight, boxSizing: 'borderBox' }}>
 
             <InfiniteScroll
                 dataLength={items.length}
